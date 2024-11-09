@@ -1,26 +1,18 @@
-const carousel = document.querySelector(".testimonies");
-const arrowBtns = document.querySelectorAll(".testimonial-row i");
-const firstCardWidth = carousel.querySelector(".testimonial-card");
+const toggleBtn = document.querySelector('.toggleBtn');
+const header = document.querySelector('.header');
+const testimonies = document.querySelector('.testimonial-row');
+const slider = document.querySelector('.testimonies');
 
-let isDragging = false, startX, startScrollLeft;
-
-arrowBtns.forEach(btn => {
-    btn.addEventListener("click", function(){
-        carousel.scrollLeft += btn.id === "left"? -firstCardWidth : firstCardWidth;
-    });
+toggleBtn.addEventListener('click', () =>{
+    header.classList.toggle('showNav');
 })
 
-carousel.addEventListener('mousemove', event => {
-    if (!isDragging) return;
-    carousel.scrollLeft = startScrollLeft - (event.pageX - startX);
-});
-carousel.addEventListener("mousedown", event =>{
-    isDragging = true;
-    carousel.classList.add("dragging");
-    startX = event.pageX;
-    startScrollLeft = carousel.scrollLeft;
-});
-document.addEventListener("mouseup", event =>{
-    isDragging = false;
-    carousel.classList.remove("dragging");
-});
+testimonies.addEventListener('click', (event) =>{
+    let positionClick = event.target;
+    if(positionClick.classList.contains('bx-caret-right')){
+        slider.append(slider.querySelector('.testimonial-card:first-child'));
+    }
+    else if(positionClick.classList.contains('bx-caret-left')){
+        slider.prepend(slider.querySelector('.testimonial-card:last-child'));
+    }
+})

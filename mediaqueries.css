@@ -1,7 +1,15 @@
 @media screen and (max-width:660px) {
     .header{
         display: block;
-        text-align: center;
+        margin: 20px;
+    }
+    .toggleBtn{
+        display: flex;
+        top: 35px;
+        vertical-align: middle;
+    }
+    .showNav .navbar ul, .header{
+        display: block;
     }
     .logo{
         font-size: 2rem;
@@ -19,12 +27,12 @@
         transition: all 500ms ease-out;
     }
     
-    .navbar ul{
-        display: block;
+    :is(.navbar ul, .sign-up-btn){
+        display: none;
     }
     .navbar li{
         line-height: 4rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .navbar a{
@@ -42,6 +50,44 @@
     .sign-up-btn:hover{
         opacity: .7;
     }
+    .row{
+        display: block;
+        max-width: 90%;
+        margin: 10px;
+    }
+    .cta-btn{
+        display: block;
+        text-align: center;
+    }
+    .cols-Btn{
+        display: flex;
+        padding: 5px;
+        margin: -5px;
+    }
+    .testimonial-row{
+        margin-top: 50px;
+    }
+    .cols-2 img{
+        display: none;
+    }
+    .testimonies li:not(li:first-child){
+        display: none;
+    }
+    .testimonial-card{
+        min-width: 250px;
+        display: flex;
+        margin: 0 auto;
+    }
+    .testimonial-card:hover{
+        transform: translateY(1px);
+    }
+    .footer-links{
+        display: grid;
+    }
+    footer{
+        isolation: isolate;
+    }
+    
     
 } 
 
